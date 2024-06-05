@@ -6,7 +6,7 @@ const textoResultado = document.querySelector("texto-resultado");
 
 const perguntas = [
   {
-    enunciado "pergunta 1";
+    enunciado "Qual a cor dos olhos";
     alternativas: [
       "resposta 1"
       "resposta 2"
@@ -14,10 +14,10 @@ const perguntas = [
   }
 
   {
-    enunciado "pergunta 2";
+    enunciado "Quem é o melhor vilão?";
     alternativas: [
-      "resposta 1"
-      "respota 2"
+      "Jason"
+      "Fred"
     ]
   }
 
@@ -37,4 +37,23 @@ const perguntas = [
   ]
 }
   
-]
+];
+
+let atual = 1;
+let perguntaAtual;
+
+function mostraAlternativas() {
+  for (const alternativa of perguntaAtual.alternativas) {
+    const botaoAlternativas = document.createElement("button");
+    botaoAlternativas.textContent = alternativa;
+    caixaAlternativas.appendChild(botaoAlternativas);
+  }
+}
+
+function mostraPergunta() {
+  perguntaAtual = perguntas[atual];
+  caixaPerguntas.txtContent = perguntaAtual.enunciado;
+  mostraAlternativas();
+}
+
+mostraPergunta();
